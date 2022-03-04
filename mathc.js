@@ -1,5 +1,5 @@
 class MathC {
-    static randomIntFromInterval(min, max) { // min and max included 
+    static randomIntFromInterval(min, max) { 
         return Math.floor(Math.random() * (max - min + 1) + min);
     }
 

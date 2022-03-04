@@ -50,7 +50,31 @@ class CircleSprite {
     draw(context) {
         context.fillStyle = this.color;
         context.beginPath()
-        context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI /*PI GRECO*/)
+        context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI)
         context.fill()
+    }
+}
+
+class PlayerSprite extends RectSprite {
+
+    constructor(x, y, w, h, speedX, speedY) {
+        super(x, y, w, h, speedX, speedY, "green");
+        this.isPlayer = true
+    }
+
+    update(canvas, controller) {
+        if (controller.isUpClicked) {
+            this.speedY += -0.1;
+        }
+        if (controller.isDownClicked) {
+            this.speedY += 0.1;
+        }
+        if (controller.isRightClicked) {
+            this.speedX += 0.1;
+        }
+        if (controller.isLeftClicked) {
+            this.speedX += -0.1;
+        }
+        super.update(canvas)
     }
 }
